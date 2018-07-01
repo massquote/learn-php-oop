@@ -7,3 +7,6 @@ There are lot of things to do in this project like security flaws, cart handling
 # installation
 This needs composer for the dependecies.
 Use the db_schema.sql in to build necessary tables
+
+# Server requirements
+mod_rewrite should be enables. latest mysql,apache version and php7.
