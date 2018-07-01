@@ -1,22 +1,10 @@
 <?php
-/**
- * This class is the home controller
- * or home page. All request for home will
- * go here
- * 	
- * @Author: Felix Notarte
- * @Date:   2018-07-01 20:08:23
- * @Last Modified by:   Felix Notarte
- * @Last Modified time: 2018-07-02 00:07:05
- */
-
 use Cart\Template;
-use Cart\Session;
 use Cart\Model\Product;
 use Cart\Library\ShoppingCart;
 
 
-class Home extends Template
+class Success extends Template
 {
 	private $products;
 	private $cart;
@@ -34,15 +22,16 @@ class Home extends Template
 	 * The index page of the app
 	 * @return none
 	 */
-	public function index()
+	public function index(string $token ='')
 	{
-		$data['products'] 	= $this->product->getProducts();
+		// just a simple security check
+		$this->checkPermission(['GET'] ,$token);
+
 		$data['token'] 		= $this->cart->getToken(); 
 		$data['credit']		= $this->cart->getCredit();
 
 		$this->setTitle('Internet Shop')
-				->setJs(['home'])
-				->loadView('home', $data);
+				->loadView('success', $data);
 
 	}
 }

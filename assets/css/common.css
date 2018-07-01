@@ -1,10 +1,25 @@
 /*
 * @Author: junnotarte
 * @Date:   2018-07-01 11:17:54
-* @Last Modified by:   junnotarte
-* @Last Modified time: 2018-07-01 11:20:20
+* @Last Modified by:   Felix Notarte
+* @Last Modified time: 2018-07-01 19:12:04
 */
 
 .topnav-right {
   float: right;
+}
+
+#ex4 .p1[data-count]:after{
+  position:absolute;
+  right:10%;
+  top:8%;
+  content: attr(data-count);
+  font-size:40%;
+  padding:.2em;
+  border-radius:50%;
+  line-height:1em;
+  color: white;
+  background:rgba(255,0,0,.85);
+  text-align:center;
+  min-width: 1em;
 }

@@ -5,8 +5,8 @@
  * 
  * @Author: junnotarte
  * @Date:   2018-07-01 10:46:30
- * @Last Modified by:   junnotarte
- * @Last Modified time: 2018-07-01 11:25:03
+ * @Last Modified by:   Felix Notarte
+ * @Last Modified time: 2018-07-01 12:50:31
  */
 namespace Cart;
 
@@ -90,9 +90,13 @@ class Model
 		$sql = $this->getSql();
 		$query = mysqli_query($this->db, $sql);
 
-		$rows = mysqli_fetch_array($query);
+		$data = [];
+		while($row = mysqli_fetch_assoc($query)) {
+       		array_push($data, $row);
+    	}
+		mysqli_free_result($query);
 		mysqli_close ($this->db);
-		return $rows;
+		return $data;
 	}
 
 	/**
